@@ -145,7 +145,7 @@ Including an example of how to use your role (for instance, with variables passe
   roles:
     - role: geerlingguy.repo-epel
       when: ansible_os_family == 'RedHat'
-    - role: mbaran0v.rabbimtq
+    - role: mbaran0v.rabbitmq
 ```
 
 License
