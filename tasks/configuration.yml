@@ -36,5 +36,5 @@
     section: Service
     option: LimitNOFILE
     value: '{{ rabbitmq_fd_limit }}'
-  notify: Reloaad systemd services and restart RabbitMQ
+  notify: Reload systemd services and restart RabbitMQ
   when: hostvars[inventory_hostname]['ansible_service_mgr'] == 'systemd' and rabbitmq_fd_limit is defined
