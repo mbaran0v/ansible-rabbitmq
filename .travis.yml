@@ -3,9 +3,8 @@
 sudo: required
 
 language: python
+python: '3.6'
 cache: pip
-python:
-  - 3.6
 
 services:
   - docker
