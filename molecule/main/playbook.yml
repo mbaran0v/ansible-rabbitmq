@@ -8,4 +8,6 @@
     - ../resources/vars/main.yaml
 
   roles:
+    - role: geerlingguy.repo-epel
+      when: ansible_os_family == 'RedHat'
     - role: ansible-rabbitmq

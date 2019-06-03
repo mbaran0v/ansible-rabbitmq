@@ -1,24 +1,21 @@
-Rabbitmq 
-========
+# Ansible role: RabbitMQ
 
-[![Build Status](https://travis-ci.org/abelboldu/ansible-rabbitmq.svg?branch=master)](https://travis-ci.org/abelboldu/ansible-rabbitmq) on master branch
+[![Build Status](https://travis-ci.org/mbaran0v/ansible-rabbitmq.svg?branch=master)](https://travis-ci.org/mbaran0v/ansible-rabbitmq) [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT) [![GitHub tag](https://img.shields.io/github/tag/mbaran0v/ansible-rabbitmq.svg)](https://github.com/mbaran0v/ansible-rabbitmq/tags/) [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Playbook that installs and configures RabbitMQ message broker.
+Ansible role for install and configure [RabbitMQ message broker](https://www.rabbitmq.com). Currently this works on Debian and RedHat based linux systems. Supports standalone or simple cluster deployment, it is based on [abelboldu.rabbitmq](https://github.com/abelboldu/ansible-rabbitmq) role.
 
-Supports standalone or simple cluster deployment, it is based on
-Mayeu.RabbitMQ role, without SSL or federation support.
+Tested platforms are:
 
-## Installation
+* Ubuntu 16.04
+* CentOS 7
 
-Use Ansible galaxy to install this playbook:
+Requirements
+------------
 
-    $ ansible-galaxy install openstack-ansible-galaxy.rabbitmq
+Requires EPEL repository for RHEL/CentOS; recommended role for EPEL installation: [geerlingguy.repo-epel](https://github.com/geerlingguy/ansible-role-repo-epel)
 
-## Supported system
-
-Ubuntu 14.04 (Trusty), Ubuntu 16.04 (Xenial) and CentOS 7
-
-## Role Variables
+Role Variables
+--------------
 
 ### Environment
 
@@ -133,16 +130,25 @@ Playbook example:
 `rabbitmq_fd_limit` - set this to some numeric value to override 1024
 default. Currently only supports systemd.
 
-## Testing
+Dependencies
+------------
 
-There is some tests that try to provision a VM using Vagrant. Just launch them
-with:
+None
 
-    $ cd tests
-    $ vagrant up
+Example Playbook
+----------------
 
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+```yaml
+- hosts: rabbitmq
+  roles:
+    - role: geerlingguy.repo-epel
+      when: ansible_os_family == 'RedHat'
+    - role: mbaran0v.rabbimtq
+```
 
-## License
+License
+-------
 
 BSD
